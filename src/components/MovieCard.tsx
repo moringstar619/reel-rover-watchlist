@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Play, Info, Star, Plus, Check } from "lucide-react";
-import { trailerUrl, type Title } from "@/lib/catalog";
+import { Star, Plus, Check } from "lucide-react";
+import { type Title } from "@/lib/catalog";
 import { toggle, useList } from "@/lib/library";
 import { Poster } from "./Poster";
 
@@ -19,14 +19,6 @@ export function MovieCard({ t }: { t: Title }) {
       >
         {inList ? <Check className="size-4" /> : <Plus className="size-4" />}
       </button>
-      <div className="pointer-events-none absolute inset-x-2 bottom-[4.5rem] flex gap-2 opacity-0 transition duration-300 group-hover:pointer-events-auto group-hover:opacity-100 max-sm:hidden">
-        <a href={trailerUrl(t)} target="_blank" rel="noreferrer" className="flex flex-1 items-center justify-center gap-1 rounded-md bg-primary py-1.5 text-xs font-semibold text-primary-foreground">
-          <Play className="size-3 fill-current" /> Trailer
-        </a>
-        <Link to="/title/$id" params={{ id: t.id }} className="flex flex-1 items-center justify-center gap-1 rounded-md bg-secondary py-1.5 text-xs font-semibold">
-          <Info className="size-3" /> Info
-        </Link>
-      </div>
       <div className="mt-2 px-0.5">
         <p className="truncate text-sm font-semibold">{t.title}</p>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">

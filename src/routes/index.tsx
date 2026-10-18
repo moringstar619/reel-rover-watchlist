@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Play, Info, Star, Plus, Check } from "lucide-react";
+import { Play, Star, Plus, Check } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import { CATALOG, SECTIONS, getTitle, trailerUrl } from "@/lib/catalog";
+import { CATALOG, SECTIONS, getTitle } from "@/lib/catalog";
 import { toggle, useList } from "@/lib/library";
 import { Row } from "@/components/Row";
 import { PlatformStrip } from "@/components/Platforms";
@@ -42,12 +42,6 @@ function Home() {
           <div className="animate-rise mt-6 flex flex-wrap gap-3">
             <Link to="/title/$id" params={{ id: f.id }} hash="watch" className="flex items-center gap-2 rounded-lg bg-gradient-primary px-6 py-3 font-bold text-primary-foreground shadow-glow transition hover:scale-105">
               <Play className="size-5 fill-current" /> Watch Now
-            </Link>
-            <a href={trailerUrl(f)} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg glass px-6 py-3 font-semibold ring-1 ring-border hover:bg-secondary">
-              <Play className="size-5" /> Watch Trailer
-            </a>
-            <Link to="/title/$id" params={{ id: f.id }} className="flex items-center gap-2 rounded-lg glass px-6 py-3 font-semibold ring-1 ring-border hover:bg-secondary">
-              <Info className="size-5" /> More Info
             </Link>
             <button onClick={() => toggle("watchlist", f.id)} aria-label="Toggle watchlist" className="grid size-12 place-items-center rounded-full glass ring-1 ring-border hover:bg-secondary">
               {inList ? <Check /> : <Plus />}
