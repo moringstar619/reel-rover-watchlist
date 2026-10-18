@@ -90,8 +90,6 @@ export const CATALOG: Title[] = RAW.map((r, i) => ({
 }));
 
 export const getTitle = (id: string) => CATALOG.find((t) => t.id === id);
-export const trailerUrl = (t: Title) =>
-  `https://www.youtube.com/results?search_query=${encodeURIComponent(`${t.title} ${t.year} official trailer`)}`;
 
 const by = (k: "popularity" | "rating" | "year") => (a: Title, b: Title) =>
   k === "year" ? b.released.localeCompare(a.released) : b[k] - a[k];

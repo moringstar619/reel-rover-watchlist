@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Play, Plus, Check, Heart, Star } from "lucide-react";
-import { CATALOG, getTitle, trailerUrl } from "@/lib/catalog";
+import { Plus, Check, Heart, Star } from "lucide-react";
+import { CATALOG, getTitle } from "@/lib/catalog";
 import { pushRecent, toggle, useList } from "@/lib/library";
 import { Poster } from "@/components/Poster";
 import { PlatformBadge } from "@/components/Platforms";
@@ -60,7 +60,6 @@ function Detail() {
               <div><dt className="inline text-muted-foreground">Cast: </dt><dd className="inline">{t.cast.join(", ")}</dd></div>
             </dl>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href={trailerUrl(t)} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg bg-gradient-primary px-5 py-3 font-bold text-primary-foreground shadow-glow"><Play className="size-5 fill-current" /> Watch Trailer</a>
               <button onClick={() => toggle("watchlist", t.id)} className={btn}>{watch.includes(t.id) ? <Check className="size-5" /> : <Plus className="size-5" />}{watch.includes(t.id) ? "In Watchlist" : "Add to Watchlist"}</button>
               <button onClick={() => toggle("favorites", t.id)} className={btn}><Heart className={`size-5 ${favs.includes(t.id) ? "fill-primary text-primary" : ""}`} />{favs.includes(t.id) ? "Favorited" : "Favorite"}</button>
             </div>
