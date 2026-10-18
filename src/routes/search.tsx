@@ -5,13 +5,13 @@ import { Grid } from "@/components/Row";
 
 export const Route = createFileRoute("/search")({
   validateSearch: (s: Record<string, unknown>): Filters => ({
-    q: typeof s.q === "string" ? s.q : undefined,
-    genre: typeof s.genre === "string" ? s.genre : undefined,
-    year: s.year ? String(s.year) : undefined,
-    language: typeof s.language === "string" ? s.language : undefined,
-    minRating: s.minRating ? Number(s.minRating) : undefined,
-    platform: typeof s.platform === "string" ? s.platform : undefined,
-    sort: s.sort === "newest" || s.sort === "rated" ? s.sort : undefined,
+    q: typeof s["q"] === "string" ? s["q"] : undefined,
+    genre: typeof s["genre"] === "string" ? s["genre"] : undefined,
+    year: s["year"] ? String(s["year"]) : undefined,
+    language: typeof s["language"] === "string" ? s["language"] : undefined,
+    minRating: s["minRating"] ? Number(s["minRating"]) : undefined,
+    platform: typeof s["platform"] === "string" ? s["platform"] : undefined,
+    sort: s["sort"] === "newest" || s["sort"] === "rated" ? s["sort"] : undefined,
   }),
   head: () => ({
     meta: [

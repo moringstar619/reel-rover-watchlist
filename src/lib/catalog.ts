@@ -128,8 +128,8 @@ export const ALL_GENRES = [...new Set(CATALOG.flatMap((t) => t.genres))].sort();
 export const ALL_LANGUAGES = [...new Set(CATALOG.map((t) => t.language))].sort();
 
 export interface Filters {
-  q?: string; genre?: string; year?: string; language?: string; minRating?: number;
-  platform?: string; sort?: "newest" | "popular" | "rated";
+  q?: string | undefined; genre?: string | undefined; year?: string | undefined; language?: string | undefined;
+  minRating?: number | undefined; platform?: string | undefined; sort?: "newest" | "popular" | "rated" | undefined;
 }
 
 export function filterTitles(f: Filters, base: Title[] = CATALOG): Title[] {
