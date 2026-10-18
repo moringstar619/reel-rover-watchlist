@@ -18,20 +18,20 @@ export function Header() {
   const nav = useNavigate();
   const user = useUser();
   const submit = (e: React.FormEvent) => { e.preventDefault(); setOpen(false); nav({ to: "/search", search: { q } }); };
-  const linkCls = "text-sm text-muted-foreground transition hover:text-foreground";
+  const linkCls = "whitespace-nowrap text-sm text-muted-foreground transition hover:text-foreground";
   const active = { className: "text-foreground font-semibold" };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 glass border-b">
       <div className="flex h-16 items-center gap-6 px-4 sm:px-10">
         <Logo />
-        <nav className="hidden items-center gap-5 xl:flex">
+        <nav className="hidden items-center gap-4 xl:flex">
           <Link to="/" className={linkCls} activeProps={active} activeOptions={{ exact: true }}>Home</Link>
           {NAV.map((n) => <Link key={n.c} to="/browse/$category" params={{ category: n.c }} className={linkCls} activeProps={active}>{n.label}</Link>)}
         </nav>
         <form onSubmit={submit} className="ml-auto hidden items-center gap-2 rounded-full bg-secondary px-3 py-1.5 ring-1 ring-border focus-within:ring-primary md:flex">
           <Search className="size-4 text-muted-foreground" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search titles…" aria-label="Search titles" className="w-40 bg-transparent text-sm outline-none lg:w-56" />
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search titles…" aria-label="Search titles" className="w-32 bg-transparent text-sm outline-none 2xl:w-56" />
         </form>
         <Link to="/watchlist" aria-label="My list" className="hidden md:block text-muted-foreground hover:text-foreground"><Bookmark className="size-5" /></Link>
         <div className="hidden items-center gap-2 md:flex">
@@ -43,7 +43,7 @@ export function Header() {
           ) : (
             <>
               <Link to="/login" className="rounded-md px-3 py-1.5 text-sm hover:bg-secondary">Login</Link>
-              <Link to="/signup" className="rounded-md bg-gradient-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground shadow-glow">Sign Up</Link>
+              <Link to="/signup" className="whitespace-nowrap rounded-md bg-gradient-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground shadow-glow">Sign Up</Link>
             </>
           )}
         </div>
